@@ -4,7 +4,7 @@
     "SignBatches": [
       {
         "MatchedPath": [
-            "Microsoft.DocAsCode*.dll",
+            "(src|plugins|tools)\\Microsoft.DocAsCode*.dll",
             "docfx.exe"
         ],
         "SigningInfo": {

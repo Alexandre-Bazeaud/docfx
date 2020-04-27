@@ -11,7 +11,7 @@
             "Operations" : [
                 {
                     "KeyCode" : "CP-230012",
-                    "OperationCode" : "SigntoolSign",
+                    "OperationSetCode": "SigntoolSign",
                     "parameters": [
                         {
                           "parameterName": "OpusName",
@@ -39,7 +39,7 @@
                 },
                 {
                     "KeyCode" : "CP-230012",
-                    "OperationCode" : "SigntoolVerify",
+                    "OperationSetCode" : "SigntoolVerify",
                     "Parameters": [
                         {
                           "parameterName": "VerifyAll",
@@ -76,7 +76,7 @@
             "Operations" : [
                 {
                     "KeyCode" : "CP-231522",
-                    "OperationCode" : "SigntoolSign",
+                    "OperationSetCode": "SigntoolSign",
                     "parameters": [
                         {
                           "parameterName": "OpusName",
@@ -108,7 +108,7 @@
                 },
                 {
                     "KeyCode" : "CP-231522",
-                    "OperationCode" : "SigntoolVerify",
+                    "OperationSetCode" : "SigntoolVerify",
                     "Parameters": [
                         {
                           "parameterName": "VerifyAll",

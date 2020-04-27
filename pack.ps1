@@ -50,14 +50,8 @@ if (-not(ValidateCommand($nugetCommand))) {
 
 # dotnet pack first
 foreach ($proj in (Get-ChildItem -Path ("src", "plugins") -Include *.[cf]sproj -Exclude 'docfx.msbuild.csproj' -Recurse)) {
-    if ($os -eq "Windows") {
-        & dotnet pack $proj.FullName -c $configuration --no-build -o $scriptHome/artifacts/$configuration /p:Version=$packageVersion
-        ProcessLastExitCode $lastexitcode "dotnet pack $($proj.FullName) -c $configuration --no-build -o $scriptHome/artifacts/$configuration /p:Version=$packageVersion"
-    }
- else {
-        & nuget pack $($proj.FullName) -Properties Configuration=$configuration -OutputDirectory $scriptHome/artifacts/$configuration -Version $packageVersion
-        ProcessLastExitCode $lastexitcode "nuget pack $($proj.FullName) -Properties Configuration=$configuration -OutputDirectory $scriptHome/artifacts/$configuration -Version $packageVersion"
-    }
+    & nuget pack $($proj.FullName) -Properties Configuration=$configuration -OutputDirectory $scriptHome/artifacts/$configuration -Version $packageVersion
+    ProcessLastExitCode $lastexitcode "nuget pack $($proj.FullName) -Properties Configuration=$configuration -OutputDirectory $scriptHome/artifacts/$configuration -Version $packageVersion"
 }
 
 # Pack docfx.console

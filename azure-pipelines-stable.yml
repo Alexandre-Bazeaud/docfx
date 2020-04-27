@@ -4,12 +4,6 @@ pool:
 
 steps:
 
-- task: UseDotNet@2
-  displayName: 'Install .NET Core sdk'
-  inputs:
-    packageType: sdk
-    version: 3.1.200
-
 - task: NodeTool@0
   displayName: 'Use Node 8.x'
   inputs:

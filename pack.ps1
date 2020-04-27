@@ -52,7 +52,7 @@ if (-not(ValidateCommand($nugetCommand))) {
 foreach ($proj in (Get-ChildItem -Path ("src", "plugins") -Include *.[cf]sproj -Exclude 'docfx.msbuild.csproj' -Recurse)) {
     if ($os -eq "Windows") {
         & dotnet pack $proj.FullName -c $configuration --no-build -o $scriptHome/artifacts/$configuration /p:Version=$packageVersion
-        ProcessLastExitCode $lastexitcode "dotnet pack $($proj.FullName) -c $configuration -o $scriptHome/artifacts/$configuration /p:Version=$packageVersion"
+        ProcessLastExitCode $lastexitcode "dotnet pack $($proj.FullName) -c $configuration --no-build -o $scriptHome/artifacts/$configuration /p:Version=$packageVersion"
     }
  else {
         & nuget pack $($proj.FullName) -Properties Configuration=$configuration -OutputDirectory $scriptHome/artifacts/$configuration -Version $packageVersion
@@ -132,7 +132,7 @@ foreach ($name in $packages.Keys) {
     $outputFolder = "$scriptHome/target/$configuration/$name"
     # publish to target folder before pack
     & dotnet publish $proj.FullName -c $configuration --no-build -f $framework -o $outputFolder
-    ProcessLastExitCode $lastexitcode "dotnet publish $($proj.FullName) -c $configuration -f $framework -o $outputFolder"
+    ProcessLastExitCode $lastexitcode "dotnet publish $($proj.FullName) -c $configuration --no-build -f $framework -o $outputFolder"
 
     $nuspecs = $val.nuspecs
     foreach ($nuspec in $nuspecs) {
